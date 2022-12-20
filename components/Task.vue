@@ -1,9 +1,15 @@
 <template>
-  
+  <div>
+
+  </div>
 </template>
 
 <script>
-export default {
-  // name: "NuxtTutorial",
-};
+  export default {
+    
+  }
 </script>
+
+<style lang="scss" scoped>
+
+</style>
