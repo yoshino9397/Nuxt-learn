@@ -12,12 +12,25 @@
       <button @click="addTask">Add</button>
     </div>
 
-    <!-- <div class="tasks">
+    <div class="tasks">
+      <!-- {{ $store.state.tasks }} -->
       <Task v-for="(task, i) in $store.state.tasks" :key="i" :task="task" />
-    </div> -->
+    </div>
   </main>
 </template>
 
 <script>
-
+export default {
+  data() {
+    return { newTask: "" };
+  },
+  methods: {
+    addTask() {
+      if (this.newTask) {
+        this.$store.commit("ADD_TASK", this.newTask);
+        this.newTask = "";
+      }
+    },
+  },
+};
 </script>
