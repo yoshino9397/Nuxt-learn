@@ -1,15 +1,25 @@
 <template>
-  <div>
-
+  <div :class="`task ${task.done ? 'is-complete' : ''}`">
+    <div class="content">{{ task.content }}</div>
+    <div class="buttons">
+      <button @click="toggleDone">{{ task.done ? "Undo" : "Done" }}</button>
+      <button @click="removeTask" class="delete">Delete</button>
+    </div>
   </div>
 </template>
 
 <script>
-  export default {
-    
-  }
+export default {
+  props: ["task"],
+  methods: {
+    removeTask() {
+      this.$store.commit("REMOVE_TASK", this.task);
+    },
+    toggleDone() {
+      this.$store.commit("TOGGLE_TASK", this.task);
+    },
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style></style>
